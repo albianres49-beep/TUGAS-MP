@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JANGAN LEWATKAN — Kesempatan Terbatas</title>
+  <style>
+    :root{--bg1:#0f172a;--bg2:#0f3b5b;--accent:#ffdd57}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,221,87,0.06), transparent 6%),
+                  radial-gradient(900px 500px at 90% 90%, rgba(255,255,255,0.03), transparent 8%),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:#fff;display:flex;align-items:center;justify-content:center;padding:2rem;
+    }
+
+    .card{
+      width:min(920px,98%);background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.12));
+      border-radius:18px;padding:3.2rem;text-align:center;box-shadow:0 10px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,0.04)
+    }
+
+    h1{font-size:2.25rem;margin:0 0 .6rem;line-height:1.05}
+    p.lead{margin:0 0 1.8rem;opacity:.9}
+
+    /* centered big click button */
+    .cta-wrap{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+    .cta{
+      display:inline-flex;align-items:center;gap:.9rem;padding:1.05rem 2.05rem;border-radius:999px;font-weight:700;font-size:1.05rem;
+      background:linear-gradient(90deg,var(--accent),#ffb86b);color:#071014;text-decoration:none;box-shadow:0 12px 30px rgba(255,189,70,0.12),0 2px 0 rgba(0,0,0,0.25) inset;transform:translateY(0);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .cta:hover{transform:translateY(-6px);box-shadow:0 22px 40px rgba(255,189,70,0.14)}
+
+    /* small hint button */
+    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:.65rem 1rem;border-radius:10px;color:rgba(255,255,255,0.9);font-weight:600}
+
+    /* pulse highlight */
+    .pulse{position:relative}
+    .pulse::after{content:'';position:absolute;inset:-8px;border-radius:20px;filter:blur(18px);opacity:.45;background:radial-gradient(circle at 20% 30%, rgba(255,221,87,0.35), transparent 10%)}
+
+    .legal{font-size:.85rem;color:rgba(255,255,255,0.65);margin-top:1.6rem}
+
+    @media (max-width:520px){h1{font-size:1.45rem}.cta{padding:.85rem 1.2rem;font-size:.95rem}}
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <h1>Ingin Bot Premium?</h1>
+    <p class="lead">Klik Tombol di bawah ini untuk Informasi selanjutnya!!!</p>
+
+    <div class="cta-wrap">
+      <!-- Ganti "your_telegram_username" dengan username tujuan di Telegram (tanpa @), misal: teman_kelas -->
+      <a class="cta pulse" id="mainCta" href="https://web.telegram.org/k/#@PremiumBot" target="_blank" rel="noopener noreferrer">
+        👉 klik disini
+      </a>
+
+      <a class="ghost" href="#info" id="howItWorks">uWu</a>
+    </div>
+
+    <p class="legal">PERINGATAN Jika kalian menemukan WEB Mirip seperti ini cek terlebih dahulu</p>
+  </main>
+
+  <script>
+    // Tambahan kecil: efek countdown singkat ketika tombol diklik (hanya visual)
+    const cta = document.getElementById('mainCta');
+    cta.addEventListener('click', function(e){
+      // Tidak mencegah navigasi — hanya memberi feedback singkat
+      cta.textContent = 'Membuka chat...';
+      // Jika ingin menambahkan bot atau memproses sebelum buka, gunakan window.open dengan target
+      setTimeout(()=>{ cta.textContent = '👉 Klik Sekali — Masuk ke Chat' }, 2500);
+    });
+
+    // Tombol info membuka modal sederhana (tanpa modal UI agar tetap simpel untuk tugas)
+    document.getElementById('howItWorks').addEventListener('click', function(e){
+      e.preventDefault();
+      alert('Tugas sekolah: buat halaman yang mengarahkan pengunjung ke chat Telegram. tambahan https://youtu.be/dQw4w9WgXcQ?si=ZE2Cr1FDqdolNaMc');
+    });
+  </script>
+</body>
+</html>
